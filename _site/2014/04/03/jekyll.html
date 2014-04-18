@@ -1,12 +1,84 @@
 <!DOCTYPE html>
-<html>
-　　  <head>
-　　　　<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-　　　　<title>jekyll变量和grammar</title>
-　　  </head>
-　　  <body>
+<html lang="zh-cn">
 
-　　　　<h1>jekyll 变量和语法教程</h1>
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" href="/hello/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/hello/css/style.css">
+
+    <!-- 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+     -->
+    <script type="text/javascript">
+     $('.carousel').carousel({
+        interval: 2000
+     });
+    </script>
+
+    <title>我的第一个网页</title>
+</head>
+
+  <body>
+     <a href="#content" class="sr-only">Skip to main content</a>
+
+      <div class="header" id="header">
+  <div class="container">
+    <img src="/hello/images/logo.png" alt="Company">
+    <span>PolyTechDocs</span>
+    <nav class="navbar navbar-default" role="navigation">
+     <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">PolyTechDocs</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a href="#">Python</a></li>
+          <li><a href="#">PolyEMM</a></li>
+          <li><a href="#">Javascript</a></li>
+          <li><a href="#">Bootstrap</a></li>
+          <li><a href="#">Jekyll入门</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">AngularJS入门(一)</a></li>
+              <li><a href="#">AngularJS入门(二)</a></li>
+              <li><a href="#">AngularJS入门(三)</a></li>
+              <li class="divider"></li>
+              <li><a href="#">SpringMVC从入门到精通</a></li>
+              <li class="divider"></li>
+              <li><a href="#">MyBatis从入门到精通</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></button>
+        </form>
+       <ul class="nav navbar-nav narbar-right">
+           <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+       </ul>  
+      </div><!-- /.navbar-collapse -->
+    </nav>
+  </div>
+</div> 
+
+  	<div class="container"  id="content">
+
+		     <h1>jekyll 变量和语法教程</h1>
 
 <blockquote>
 <p>Jekyll会遍历你的站点，来寻找需要处理的文件。任何具有 YAML前置数据的文件都将会被处理，每一个这样的文件, Jekyll都会通过Liquid模板系统使用许多可用的页面变量。下面是一个可用变量的列表。</p>
@@ -19,10 +91,10 @@
 
 <ul>
 <li>_config.yml   ................ Jekyll的配置文件</li>
-<li>_includes     ................... include 文件所在的文件夹</li>
-<li>_layouts      ..................... 模版文件夹</li>
-<li>_posts        ........................ 自己要发布的内容</li>
-<li>_sites        ......................... 预览时产生的文件都放在该文件夹中</li>
+<li>_includes     .................. include 文件所在的文件夹</li>
+<li>_layouts      ................... 模版文件夹</li>
+<li>_posts        ..................... 自己要发布的内容</li>
+<li>_sites        ..................... 预览时产生的文件都放在该文件夹中</li>
 </ul>
 
 <hr></li>
@@ -75,7 +147,7 @@
 <li><strong>site.categories.CATEGORY</strong> :所有在CATEGORY分类中的文章列表</li>
 <li><strong>site.tags.TAG</strong> :所有拥有TAG标签的文章的列表</li>
 <li><strong>site.[CONFIGURATION_DATA]</strong> :截止0.5.2版本，所有在_config.yml中的数据都能够通过site变量调用。举例来说，
-如果你有一个这样的选项在你的配置文件中:<code>url:http://higrid.net</code>，那在文章和页面文件中可以这样调用<code></code>。
+如果你有一个这样的选项在你的配置文件中:<code>url:http://higrid.net</code>，那在文章和页面文件中可以这样调用<code>/hello</code>。
 Jekyll并不会自动解析修改过的_config.yml文件，你想要启用新的设置选项，你需要重启Jekyll</li>
 </ul></li>
 <li><h3>Jekyll模板Page变量</h3>
@@ -118,20 +190,33 @@ Jekyll并不会自动解析修改过的_config.yml文件，你想要启用新的
 <ul>
 <li><p><strong>创建Post文章</strong></p>
 
-<p>rake post title=&quot;文章标题&quot;</p>
+<p><code>rake post title=&quot;文章标题&quot;</code></p>
 
 <p>会自动创建一个具有合适文件名和YAML Front Matter的文件(使用时将&quot;文章标题&quot;替换成你要创建的文章的标题)。</p></li>
 <li><p><strong>创建Page页面</strong></p>
 
-<p>rake page name=&quot;页面名称.md&quot;   或者
-rake page name=&quot;pages/页面名称.md&quot;
-发布Post或Page</p>
+<p><code>$ rake page name=&quot;页面名称.md&quot; </code>.<br>
+或者
+<code>$ rake page name=&quot;pages/页面名称.md&quot;</code></p></li>
+<li><p><strong>发布Post或Page</strong></p>
 
-<p>git add .
-git commit -m &#39;一些说明&#39;
-git push origin master</p></li>
+<p><code>$ git add .</code>
+<code>$ git commit -m &#39;一些说明&#39;</code><br>
+<code>$ git push origin gh-pages</code></p></li>
 </ul>
 
+     
+      
+    </div>
 
-　　 </body>
+    <footer>
+	Copyright &copy sonya 2014
+	<script src="/hello/js/jquery-1.10.2.min.js">
+	</script>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/hello/js/bootstrap.min.js">
+    </script>
+</footer>
+
+  </body>
 </html>

@@ -2,3 +2,6 @@ encoding: utf-8
 pygments: true
 markdown: redcarpet
 baseurl: /hello
+url: /hello
+safe: false
+paginate: 5
